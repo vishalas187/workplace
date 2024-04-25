@@ -25,6 +25,12 @@ jobs:
       - name: Print finish message
         run: echo "Workflow completed successfully!"
 
+  built:
+    needs: echo_messages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print start message
 
 
   
