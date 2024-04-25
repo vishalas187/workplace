@@ -1,1 +1,35 @@
+name:ci-cd workflow
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkoutcode
+        uses: actions/checkout@v2
+
+      - name: buildmsg
+        run: echo "i am in build"
+
+
+  build-mg:
+    branches: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: build-mg
+        run: echo "i am build-mg"
+
+
+  deploy:
+    runs-on: ubuntu-latest
+    branches: [build,build-mg]
+    steps:
+      - name: deploy
+        run: echo "i am deploy"
+
+
+  
