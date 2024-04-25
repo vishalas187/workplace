@@ -1,33 +1,30 @@
-name:ci-cd workflow
+name: Echo Workflow
 
-on: push
-   
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  echo_messages:
     runs-on: ubuntu-latest
-    steps: 
-      - name: checkoutcode
-        uses: actions/checkout@v2
-
-      - name: buildmsg
-        run: echo "i am in build"
-
-
-  build-mg:
-    branches: build
-    runs-on: ubuntu-latest
+    
     steps:
-      - name: build-mg
-        run: echo "i am build-mg"
+      - name: Print start message
+        run: echo "Starting the workflow..."
 
+      - name: Print build message
+        run: echo "Building the project..."
 
-  deploy:
-    runs-on: ubuntu-latest
-    branches: [build,build-mg]
-    steps:
-      - name: deploy
-        run: echo "i am deploy"
+      - name: Print test message
+        run: echo "Running tests..."
+
+      - name: Print deploy message
+        run: echo "Deploying the project..."
+
+      - name: Print finish message
+        run: echo "Workflow completed successfully!"
+
 
 
   
